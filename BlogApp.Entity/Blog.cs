@@ -18,6 +18,6 @@ namespace BlogApp.Entity
         public DateTime AddedTime { get; set; }
         public bool isApproved { get; set; }
         public int CategoryID { get; set; }
-        public Category Category { get; set; }
+        public virtual Category Category { get; set; }
     }
 }

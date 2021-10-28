@@ -7,24 +7,20 @@ using System.Threading.Tasks;
 
 namespace BlogApp.WebUI.Controllers
 {
-    public class HomeController : Controller
+    public class BlogController : Controller
     {
-        private IBlogRepository blogRepo;
-        public HomeController(IBlogRepository repos)
+        private IBlogRepository repository;
+        public BlogController(IBlogRepository _repo)
         {
-            blogRepo = repos;
+            repository = _repo;
         }
         public IActionResult Index()
         {
-            return View(blogRepo.GetAll());
+            return View();
         }
         public IActionResult List()
         {
-            return View();
-        }
-        public IActionResult Details()
-        {
-            return View();
+            return View(repository.GetAll());
         }
     }
 }

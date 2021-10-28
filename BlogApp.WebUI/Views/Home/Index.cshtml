@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<Blog> 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -27,39 +27,24 @@
             </div>
         </div>
         <div class="col-md-9">
-            <div class="card mb-3">
-                <div class="card-header">
-                    Featured
+            @foreach (var item in Model)
+            {
+                <div class="card mb-3">
+                    <div class="card-header">
+                        @item.Title
+                    </div>
+                    <img src="~/img/@item.Image" class="card-img-top img-h" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Title</h5>
+                        <p class="card-text">@item.Description</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
                 </div>
-                <img src="~/img/IMG1.jpg" class="card-img-top img-h" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card mb-3">
-                <div class="card-header">
-                    Featured
-                </div>
-                <img src="~/img/IMG2.jpg" class="card-img-top img-h" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card mb-3">
-                <div class="card-header">
-                    Featured
-                </div>
-                <img src="~/img/IMG3.jpg" class="card-img-top img-h" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
+            }
+
+
+
+
         </div>
     </div>
 </div>

@@ -1,3 +1,4 @@
+using BlogApp.Data.Abstract;
 using BlogApp.Data.Concrete.EfCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -26,6 +27,8 @@ namespace BlogApp.WebUI
         {
             services.AddMvc();
             services.AddMvc(options => options.EnableEndpointRouting = false);
+            services.AddTransient<IBlogRepository, EfBlogRepository>();
+            services.AddTransient<ICategoryRepository, EfCategoryRepository>();
             services.AddDbContext<BlogContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),b=>b.MigrationsAssembly("BlogApp.WebUI")));
         }
 
@@ -50,6 +53,7 @@ namespace BlogApp.WebUI
                     );
             });
 
+            SeedData.Seed(app);
         }
     }
 }
