@@ -1,0 +1,18 @@
+[
+  {
+    "outputFileName": "wwwroot/css/bundle.css",
+    "inputFiles": [
+      "wwwroot/css/style.css",
+      "wwwroot/bootstrap/css/bootstrap.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/bundle.js",
+    "inputFiles": [
+      "wwwroot/tether/js/tether.js",
+      "wwwroot/popper.js/cjs/popper.js",
+      "wwwroot/jquery/jquery.js",
+      "wwwroot/bootstrap/js/bootstrap.js"
+    ]
+  }
+]
