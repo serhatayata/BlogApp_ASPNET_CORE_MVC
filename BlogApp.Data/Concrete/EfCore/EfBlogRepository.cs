@@ -39,9 +39,18 @@ namespace BlogApp.Data.Concrete.EfCore
         {
             return context.Blogs.FirstOrDefault(x => x.BlogID == blogID);
         }
-        public void UpdateBlog(Category entity)
+        public void UpdateBlog(Blog entity)
         {
-            context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            var _blog = GetById(entity.BlogID);
+            if (_blog != null)
+            {
+                _blog.Title = entity.Title;
+                _blog.Description = entity.Description;
+                _blog.CategoryID = entity.CategoryID;
+                _blog.Image = entity.Image;
+
+                context.SaveChanges();
+            }
             context.SaveChanges();
         }
     }

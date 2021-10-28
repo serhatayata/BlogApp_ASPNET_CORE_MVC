@@ -1,18 +1,18 @@
 [
   {
-    "outputFileName": "wwwroot/css/bundle.css",
+    "outputFileName": "wwwroot/js/bundle.js",
     "inputFiles": [
-      "wwwroot/css/style.css",
-      "wwwroot/bootstrap/css/bootstrap.css"
+      "wwwroot/lib/tether/js/tether.js",
+      "wwwroot/lib/popper.js/cjs/popper.js",
+      "wwwroot/lib/jquery/jquery.js",
+      "wwwroot/js/script.js"
     ]
   },
   {
-    "outputFileName": "wwwroot/js/bundle.js",
+    "outputFileName": "wwwroot/css/bundle.css",
     "inputFiles": [
-      "wwwroot/tether/js/tether.js",
-      "wwwroot/popper.js/cjs/popper.js",
-      "wwwroot/jquery/jquery.js",
-      "wwwroot/bootstrap/js/bootstrap.js"
+      "wwwroot/css/style.css",
+      "wwwroot/lib/bootstrap/css/bootstrap.css"
     ]
   }
 ]

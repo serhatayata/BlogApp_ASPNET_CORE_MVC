@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace BlogApp.Entity
         public string Description { get; set; }
         public string Body { get; set; }
         public string Image { get; set; }
+        [BindNever]
         public DateTime AddedTime { get; set; }
         public bool isApproved { get; set; }
         public int CategoryID { get; set; }
