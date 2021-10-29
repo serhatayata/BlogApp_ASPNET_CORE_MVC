@@ -10,8 +10,7 @@ BlogApp is a blog website you can use to do 3 main things
 
 Technology use in this project
 
-* ASP.NET CORE MVC Framework,
-* Bootstrap Framework,
+* ASP.NET CORE MVC Framework
 * MSSQL Server 2019
 
 Programming and Markup Languages
