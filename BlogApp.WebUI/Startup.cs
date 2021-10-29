@@ -30,6 +30,7 @@ namespace BlogApp.WebUI
             services.AddTransient<IBlogRepository, EfBlogRepository>();
             services.AddTransient<ICategoryRepository, EfCategoryRepository>();
             services.AddDbContext<BlogContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),b=>b.MigrationsAssembly("BlogApp.WebUI")));
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

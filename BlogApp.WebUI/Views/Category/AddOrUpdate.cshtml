@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "AddOrUpdate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model Category
+
+<div class="container bg-dark p-3 rounded-3">
+    <h2 class="mb-3 pt-3 text-light">
+        @if (Model is null)
+        {
+            <span>Create a Category</span>
+        }
+        else
+        {
+            <span>Update a Category</span>
+        }
+    </h2>
+    <form asp-controller="Category" asp-action="AddOrUpdate" method="post">
+        <input type="hidden" asp-for="CategoryID" />
+        <div class="form-group mb-3">
+            <label asp-for="Name" class="text-light">Name</label>
+            <input asp-for="Name" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-outline-primary form-control">Save</button>
+    </form>
+</div>
+

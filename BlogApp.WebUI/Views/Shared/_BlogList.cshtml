@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Blog>
+<link href="~/css/bundle.css" rel="stylesheet" />
+@if (Model.Count() == 0)
+{
+    <div class="alert alert-warning">
+        Kayıt bulunmamaktadır.
+    </div>
+}
+else
+{
+    @foreach (var item in Model)
+    {
+        <div class="card mb-3">
+            <div class="card-header">
+                @item.Title
+            </div>
+            <img src="~/img/@item.Image" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@item.Title</h5>
+                <p class="card-text">@item.Description</p>
+                <a asp-controller="Blog" asp-action="Details" asp-route-id="@item.BlogID" class="btn btn-primary">Blog Details</a>
+            </div>
+        </div>
+    }
+}

@@ -16,31 +16,10 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-            <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-                    The current link item
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">A second link item</a>
-                <a href="#" class="list-group-item list-group-item-action">A third link item</a>
-                <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
-                <a class="list-group-item list-group-item-action disabled">A disabled link item</a>
-            </div>
+            @await Component.InvokeAsync("CategoryMenu") 
         </div>
         <div class="col-md-9">
-            @foreach (var item in Model)
-            {
-                <div class="card mb-3">
-                    <div class="card-header">
-                        @item.Title
-                    </div>
-                    <img src="~/img/@item.Image" class="card-img-top img-h" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">@item.Title</h5>
-                        <p class="card-text">@item.Description</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            }
+            <partial name="_BlogList" model="Model">
         </div>
     </div>
 </div>

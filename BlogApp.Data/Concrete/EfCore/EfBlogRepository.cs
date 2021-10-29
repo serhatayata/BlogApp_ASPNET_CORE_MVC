@@ -39,6 +39,30 @@ namespace BlogApp.Data.Concrete.EfCore
         {
             return context.Blogs.FirstOrDefault(x => x.BlogID == blogID);
         }
+
+        public void SaveBlog(Blog entity)
+        {
+            if (entity.BlogID == 0)
+            {
+                entity.AddedTime = DateTime.Now;
+                context.Blogs.Add(entity);
+            }
+            else
+            {
+                var _blog = GetById(entity.BlogID);
+                if (_blog != null)
+                {
+                    _blog.Title = entity.Title;
+                    _blog.Description = entity.Description;
+                    _blog.CategoryID = entity.CategoryID;
+                    _blog.Image = entity.Image;
+                    _blog.isHome = entity.isHome;
+                    _blog.isApproved = entity.isApproved;
+                }
+            }
+            context.SaveChanges();
+        }
+
         public void UpdateBlog(Blog entity)
         {
             var _blog = GetById(entity.BlogID);

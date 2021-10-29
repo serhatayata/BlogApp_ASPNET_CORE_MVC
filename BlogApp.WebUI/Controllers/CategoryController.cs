@@ -24,19 +24,27 @@ namespace BlogApp.WebUI.Controllers
             return View(repository.GetAll());
         }
         [HttpGet]
-        public IActionResult Create()
+        public IActionResult AddOrUpdate(int? id)
         {
-            return View();
+            if (id==null)
+            {
+                return View(new Category());
+            }
+            else
+            {
+                return View(repository.GetById((int)id));
+            }
         }
         [HttpPost]
-        public IActionResult Create(Category category)
+        public IActionResult AddOrUpdate(Category entity)
         {
             if (ModelState.IsValid)
             {
-                repository.AddCategory(category);
+                repository.SaveCategory(entity);
+                TempData["message"] = $"{entity.Name} kayıt edildi.";
                 return RedirectToAction("List");
             }
-            return View(category);
+            return View(entity);
         }
     }
 }

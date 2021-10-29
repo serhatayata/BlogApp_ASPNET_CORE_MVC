@@ -19,6 +19,7 @@ namespace BlogApp.Entity
         [BindNever]
         public DateTime AddedTime { get; set; }
         public bool isApproved { get; set; }
+        public bool isHome { get; set; }
         public int CategoryID { get; set; }
         public virtual Category Category { get; set; }
     }

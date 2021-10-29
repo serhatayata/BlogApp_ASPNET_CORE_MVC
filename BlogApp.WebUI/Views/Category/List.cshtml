@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Category>
 @{
     ViewData["Title"] = "List";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <div class="container">
@@ -27,7 +27,7 @@
                             <th>@item.CategoryID</th>
                             <th>@item.Name</th>
                             <th>
-                                <a class="btn btn-primary" asp-controller="Category" asp-action="Details" asp-route-id="@item.CategoryID">Details</a>
+                                <a class="btn btn-primary" asp-controller="Category" asp-action="AddOrUpdate" asp-route-id="@item.CategoryID">Details</a>
                             </th>
                             <th>
                                 <a class="btn btn-danger" asp-controller="Category" asp-action="Delete" asp-route-id="@item.CategoryID">Delete</a>

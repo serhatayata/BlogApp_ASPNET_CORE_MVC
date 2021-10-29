@@ -19,7 +19,7 @@ namespace BlogApp.Data.Concrete.EfCore
 
             if (!context.Categories.Any())
             {
-                context.Categories.AddRange(
+                context.Categories.AddRange( 
                     new Category() { Name="Category1" },
                     new Category() { Name="Category2" },
                     new Category() { Name="Category3" }
