@@ -46,5 +46,10 @@ namespace BlogApp.WebUI.Controllers
             }
             return View(entity);
         }
+        public IActionResult Delete(int id)
+        {
+            repository.DeleteCategory(id);
+            return RedirectToAction("List");
+        }
     }
 }

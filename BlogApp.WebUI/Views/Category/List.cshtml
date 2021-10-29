@@ -8,31 +8,30 @@
     <div class="row">
         <h2>Category List</h2>
         <hr />
+        <div class="mb-3">
+            <a class="btn btn-dark" href="/Category/AddOrUpdate">Create</a>
+        </div>
         <div class="col">
-            @if (Model.Count()>0)
+            @if (Model.Count() > 0)
             {
                 <table class="table table-bordered">
                     <thead>
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Details</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
                         {
-                        <tr>
-                            <th>@item.CategoryID</th>
-                            <th>@item.Name</th>
-                            <th>
-                                <a class="btn btn-primary" asp-controller="Category" asp-action="Edit" asp-route-id="@item.CategoryID">Details</a>
-                            </th>
-                            <th>
-                                <a class="btn btn-danger" asp-controller="Category" asp-action="Delete" asp-route-id="@item.CategoryID">Delete</a>
-                            </th>
-                        </tr>
+                            <tr>
+                                <th>@item.CategoryID</th>
+                                <th>@item.Name</th>
+                                <th>
+                                    <a class="btn btn-danger" asp-controller="Category" asp-action="Delete" asp-route-id="@item.CategoryID">Delete</a>
+                                </th>
+                            </tr>
                         }
                     </tbody>
                 </table>

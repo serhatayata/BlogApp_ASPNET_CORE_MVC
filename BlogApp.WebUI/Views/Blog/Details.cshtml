@@ -10,14 +10,14 @@
         </div>
         <div class="col-md-9">
                 <div class="card mb-3">
-                    <div class="card-header">
+                    <div class="card-header bg-dark text-light">
                         @Model.Title
                     </div>
                     <img src="~/img/@Model.Image" class="card-img-top" alt="@Model.Title">
                     <div class="card-body">
                         <h5 class="card-title">@Model.Title</h5>
                         <p class="card-text">@Model.Description</p>
-                        <p class="card-text">@Model.Body</p>
+                        <p class="card-text">@Html.Raw(Model.Body)</p>
                     </div>
                 </div>
         </div>
