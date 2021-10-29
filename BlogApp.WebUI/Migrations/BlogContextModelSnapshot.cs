@@ -50,6 +50,9 @@ namespace BlogApp.WebUI.Migrations
                     b.Property<bool>("isHome")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("isSlider")
+                        .HasColumnType("bit");
+
                     b.HasKey("BlogID");
 
                     b.HasIndex("CategoryID");

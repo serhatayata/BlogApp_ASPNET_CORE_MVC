@@ -20,6 +20,7 @@ namespace BlogApp.Entity
         public DateTime AddedTime { get; set; }
         public bool isApproved { get; set; }
         public bool isHome { get; set; }
+        public bool isSlider { get; set; }
         public int CategoryID { get; set; }
         public virtual Category Category { get; set; }
     }

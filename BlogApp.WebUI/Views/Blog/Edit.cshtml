@@ -4,19 +4,16 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 @model Blog
-
+@section scripts {
+    <script src="https://cdn.ckeditor.com/4.9.1/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace("Body");
+    </script>
+}
 <div class="container bg-dark p-3 rounded-3">
-    <h2 class="mb-3 pt-3 text-light">
-    @if (Model is null)
-    {
-        <span>Create a Blog</span>
-    }
-    else
-    {
-        <span>Update a Blog</span>
-    }
-    </h2>
-    <form asp-controller="Blog" asp-action="AddOrUpdate" method="post">
+    <h2 class="mb-3 pt-3 text-light">Update a Blog</h2>
+    <form asp-controller="Blog" asp-action="Edit" method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="Image" />
         <input type="hidden" asp-for="BlogID" />
         <div class="form-group mb-3">
             <label asp-for="Title" class="text-light">Title</label>
@@ -28,11 +25,11 @@
         </div>
         <div class="form-group mb-3">
             <label asp-for="Body" class="text-light">Body</label>
-            <input asp-for="Body" class="form-control">
+            <textarea asp-for="Body" class="form-control"></textarea>
         </div>
         <div class="form-group mb-3">
-            <label asp-for="Image" class="text-light">Image</label>
-            <input asp-for="Image" class="form-control">
+            <img src="~/img/@Model.Image" width="120" />
+            <input type="file" name="file" id="file" class="form-control">
         </div>
         <div class="form-group mb-3">
             <label asp-for="isApproved" class="form-check-label text-light">Is Approved?</label>
@@ -43,6 +40,10 @@
             <input asp-for="isHome" class="form-check-input">
         </div>
         <div class="form-group mb-3">
+            <label asp-for="isSlider" class="form-check-label text-light">Is Slider?</label>
+            <input asp-for="isSlider" class="form-check-input">
+        </div>
+        <div class="form-group mb-3">
             <label asp-for="Image" class="text-light">Category</label>
             <select class="form-control" asp-for="CategoryID" asp-items="ViewBag.Categories">
                 <option disabled selected value="">Select Category</option>
@@ -51,4 +52,6 @@
         <button type="submit" class="btn btn-outline-primary form-control">Save</button>
     </form>
 </div>
+
+
 

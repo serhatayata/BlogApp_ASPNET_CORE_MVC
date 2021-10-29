@@ -1,4 +1,5 @@
 ﻿using BlogApp.Data.Abstract;
+using BlogApp.WebUI.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,10 @@ namespace BlogApp.WebUI.Controllers
         }
         public IActionResult Index()
         {
-            return View(blogRepo.GetAll().Where(x=>x.isApproved && x.isHome));
+            var model = new HomeBlogModel();
+            model.HomeBlogs = blogRepo.GetAll().Where(x => x.isApproved && x.isHome).ToList();
+            model.SliderBlogs = blogRepo.GetAll().Where(x => x.isApproved && x.isSlider).ToList();
+            return View(model);
         }
         public IActionResult List()
         {

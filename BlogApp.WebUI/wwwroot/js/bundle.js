@@ -1825,7 +1825,7 @@ return Tether;
 
 'use strict';
 
-//Object.defineProperty(exports, '__esModule', { value: true });
+Object.defineProperty(exports, '__esModule', { value: true });
 
 // import { isHTMLElement } from './instanceOf';
 function getBoundingClientRect(element, // eslint-disable-next-line unused-imports/no-unused-vars
