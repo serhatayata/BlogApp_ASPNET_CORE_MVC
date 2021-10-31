@@ -11,6 +11,8 @@ namespace BlogApp.Entity
     {
         [Key]
         public int CategoryID { get; set; }
+        [Required(ErrorMessage ="This place cannot be empty!")]
+        [MaxLength(1000,ErrorMessage = "You cannot enter more than 1000 characters !")]
         public string Name { get; set; }
         public virtual List<Blog> Blogs { get; set; }
     }

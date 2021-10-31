@@ -12,7 +12,9 @@ namespace BlogApp.Entity
     {
         [Key]
         public int BlogID { get; set; }
+        [Required(ErrorMessage ="Title cannot be empty!")]
         public string Title { get; set; }
+        [Required(ErrorMessage = "Description cannot be empty!")]
         public string Description { get; set; }
         public string Body { get; set; }
         public string Image { get; set; }
@@ -21,6 +23,8 @@ namespace BlogApp.Entity
         public bool isApproved { get; set; }
         public bool isHome { get; set; }
         public bool isSlider { get; set; }
+        [Required(ErrorMessage = "Category cannot be empty!")]
+        [Range(1, Double.PositiveInfinity, ErrorMessage = "Please select a value")]
         public int CategoryID { get; set; }
         public virtual Category Category { get; set; }
     }
